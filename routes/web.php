@@ -175,7 +175,7 @@ Route::get("nilaimahasiswawhile", function () {
 Route::get("nilaimahasiswaforeach", function () {
     $nama = ["Aldo", "Asue", "Kimai", "Kiaz", "Erland"];
     $nim = ["2311082001", "2311081001", "2311083016", "2311083007", "2311084005"];
-    $total_nilai = [20, 30, 40, 50, 100];
+    $total_nilai = [89, 36, 49, 51, 100];
 
     $mahasiswa = [];
     for ($i = 0; $i < count($nama); $i++) {
@@ -193,7 +193,7 @@ Route::get("nilaimahasiswaforelse", function () {
 
     $nama = ["Aldo", "Asue", "Kimai", "Kiaz", "Erland"];
     $nim = ["2311082001", "2311081001", "2311083016", "2311083007", "2311084005"];
-    $total_nilai = [20, 30, 40, 50, 100];
+    $total_nilai = [22, 11, 43, 76, 100];
 
     $mahasiswa = [];
     for ($i = 0; $i < count($nama); $i++) {
@@ -205,4 +205,40 @@ Route::get("nilaimahasiswaforelse", function () {
     }
 
     return view("akademik.nilaimahasiswaforelse", compact("mahasiswa"));
+});
+
+Route::get("nilaimahasiswacontinue", function () {
+
+    $nama = ["Aldo", "Asue", "Kimai", "Kiaz", "Erland"];
+    $nim = ["2311082001", "2311081001", "2311083016", "2311083007", "2311084005"];
+    $total_nilai = [10, 90, 70, 10, 100];
+
+    $mahasiswa = [];
+    for ($i = 0; $i < count($nama); $i++) {
+        $mahasiswa[] = [
+            "nama" => $nama[$i],
+            "nim" => $nim[$i] ?? "N/A",
+            "nilai" => $total_nilai[$i] ?? 0
+        ];
+    }
+
+    return view("akademik.nilaimahasiswacontinue", compact("mahasiswa"));
+});
+
+Route::get("nilaimahasiswabreak", function () {
+
+    $nama = ["Aldo", "Asue", "Kimai", "Kiaz", "Erland"];
+    $nim = ["2311082001", "2311081001", "2311083016", "2311083007", "2311084005"];
+    $total_nilai = [10, 90, 70, 10, 100];
+
+    $mahasiswa = [];
+    for ($i = 0; $i < count($nama); $i++) {
+        $mahasiswa[] = [
+            "nama" => $nama[$i],
+            "nim" => $nim[$i] ?? "N/A",
+            "nilai" => $total_nilai[$i] ?? 0
+        ];
+    }
+
+    return view("akademik.nilaimahasiswabreak", compact("mahasiswa"));
 });
