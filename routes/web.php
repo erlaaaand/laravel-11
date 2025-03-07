@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Controllers\MahasiswaController;
+use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Route;
-//default routing
+
+// default routing
 Route::get('/', function () {
     return view('welcome');
 });
@@ -13,7 +15,12 @@ Route::post('submit', function () {
 
 Route::get('/mahasiswa', [MahasiswaController::class, 'index']);
 
-Route::view('/hello','hello',['nama'=>'Erland']);
+Route::view('/hello', 'hello', ['nama' => 'Erland']);
+
+Route::get('/listmahasiswa', function () {
+    $arrmhs = ['Erland Agsya', 'Acumalaka', 'Entok', 'Asu'];
+    return view('akademik.mahasiswa', ['mhs' => $arrmhs]);
+});
 
 Route::put('update/{id}', function ($id) {
     return 'update data for id:' . $id;
@@ -123,4 +130,44 @@ Route::prefix('admin')->group(function () {
 //route fallback
 Route::fallback(function () {
     return response()->view('404', [], 404);
+});
+
+Route::get("listmahasiswa", function () {
+    $mhs1 = "Erland";
+    $mhs2 = "Acalumaka";
+    $mhs3 = "Ambatron";
+
+    return view("akademik.mahasiswalist", compact("mhs1", "mhs2", "mhs3"));
+});
+
+Route::get("nilaimahasiswa", function () {
+    $nama = "Erland";
+    $nim = "2311083007";
+    $total_nilai = "100";
+
+    return view("akademik.nilaimahasiswa", compact("nama", "nim", "total_nilai"));
+});
+
+Route::get("nilaimahasiswaswitch", function () {
+    $nama = "Erland";
+    $nim = "2311083007";
+    $total_nilai = "100";
+
+    return view("akademik.nilaimahasiswaswitch", compact("nama", "nim", "total_nilai"));
+});
+
+Route::get("nilaimahasiswaforloop", function () {
+    $nama = "Erland";
+    $nim = "2311083007";
+    $total_nilai = "100";
+
+    return view("akademik.nilaimahasiswaforloop", compact("nama", "nim", "total_nilai"));
+});
+
+Route::get("nilaimahasiswawhile", function () {
+    $nama = "Erland";
+    $nim = "2311083007";
+    $total_nilai = "100";
+
+    return view("akademik.nilaimahasiswawhile", compact("nama", "nim", "total_nilai"));
 });

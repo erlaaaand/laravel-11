@@ -69,3 +69,9 @@ php artisan migrate
 php artisan make:controller nama_controller --resource
 php artisan make:migration nama_tabel
 php artisan make:model nama_model
+
+
+// update kode
+git add .
+git commit -m "Update terbaru"
+git push origin main
