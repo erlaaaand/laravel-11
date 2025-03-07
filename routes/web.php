@@ -171,3 +171,38 @@ Route::get("nilaimahasiswawhile", function () {
 
     return view("akademik.nilaimahasiswawhile", compact("nama", "nim", "total_nilai"));
 });
+
+Route::get("nilaimahasiswaforeach", function () {
+    $nama = ["Aldo", "Asue", "Kimai", "Kiaz", "Erland"];
+    $nim = ["2311082001", "2311081001", "2311083016", "2311083007", "2311084005"];
+    $total_nilai = [20, 30, 40, 50, 100];
+
+    $mahasiswa = [];
+    for ($i = 0; $i < count($nama); $i++) {
+        $mahasiswa[] = [
+            "nama" => $nama[$i],
+            "nim" => $nim[$i] ?? "N/A",
+            "nilai" => $total_nilai[$i] ?? 0
+        ];
+    }
+
+    return view("akademik.nilaimahasiswaforeach", compact("mahasiswa"));
+});
+
+Route::get("nilaimahasiswaforelse", function () {
+
+    $nama = ["Aldo", "Asue", "Kimai", "Kiaz", "Erland"];
+    $nim = ["2311082001", "2311081001", "2311083016", "2311083007", "2311084005"];
+    $total_nilai = [20, 30, 40, 50, 100];
+
+    $mahasiswa = [];
+    for ($i = 0; $i < count($nama); $i++) {
+        $mahasiswa[] = [
+            "nama" => $nama[$i],
+            "nim" => $nim[$i] ?? "N/A",
+            "nilai" => $total_nilai[$i] ?? 0
+        ];
+    }
+
+    return view("akademik.nilaimahasiswaforelse", compact("mahasiswa"));
+});
